@@ -2,7 +2,7 @@
 
 This small project builds and encrypts the text of the [SCP Foundation wiki](http://www.scp-wiki.net/) entry, [*SCP-3125*](http://www.scp-wiki.net/scp-3125).
 
-The text of the wiki entry is kept in plain old, unencrypted HTML at [`src/html/scp-3125/en.html`](https://github.com/qntm/scp-3125/en.html). When
+The text of the wiki entry is kept in plain old, unencrypted HTML at [`src/html/scp-3125/en.html`](https://github.com/qntm/scp-3125/tree/master/src/html/scp-3125). When
 
 ```npm run encrypt```
 
