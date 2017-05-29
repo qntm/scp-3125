@@ -4,7 +4,7 @@
 
 [!--
   Keypad interface by reaper600.
-  Translating this page? See <https://github.com/qntm/scp-3125>
+  Translating this page? See <http://www.scp-wiki.net/forum/t-2263698/scp-3125#post-2811145>
 --]
 
 [!-- This tag embeds everything in a <body> which sucks... --]
