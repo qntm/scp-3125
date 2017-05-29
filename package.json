@@ -1,0 +1,36 @@
+{
+  "name": "scp-3125",
+  "version": "1.0.0",
+  "description": "Encryption/build process for the SCP Foundation wiki entry \"SCP-3125\"",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "encrypt": "node src/js/build.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qntm/scp-3125.git"
+  },
+  "keywords": [
+    "scp",
+    "foundation",
+    "wiki",
+    "wikidot",
+    "3125",
+    "five",
+    "five",
+    "five",
+    "five",
+    "five",
+    "antimemetics"
+  ],
+  "author": "qntm",
+  "license": "CC-BY-SA-3.0",
+  "bugs": {
+    "url": "https://github.com/qntm/scp-3125/issues"
+  },
+  "homepage": "https://github.com/qntm/scp-3125#readme",
+  "devDependencies": {
+    "browserify": "^14.4.0",
+    "jsdom": "^11.0.0"
+  }
+}

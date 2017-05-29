@@ -1,0 +1,33 @@
+/* CSS duplicated from Wikidot proper -_- */
+body {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 12.8px; /* 16px * 0.8 */
+  color: #333;
+  line-height: 141%;
+}
+
+blockquote {
+  border: 1px dashed #999;
+  padding: 0 12.8px;
+  background-color: #f4f4f4;
+}
+
+a {
+  color: #b01;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.collapsed {
+  display: none;
+}
+
+h4 {
+  font-size: 130%;
+  font-weight: bold;
+  margin-bottom: 0;
+}

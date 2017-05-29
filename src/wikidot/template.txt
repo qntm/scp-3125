@@ -1,0 +1,11 @@
+[[>]]
+[[module Rate]]
+[[/>]]
+
+[!--
+  Keypad interface by reaper600.
+  Translating this page? See <https://github.com/qntm/scp-3125>
+--]
+
+[!-- This tag embeds everything in a <body> which sucks... --]
+[[html]]###templatedHtml###[[/html]]

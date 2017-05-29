@@ -1,0 +1,85 @@
+/* Keypad and SCP-3125-specific */
+.keypad {
+  background: linear-gradient(to bottom, #D0D0D0 0%, #FFFFFF 80%, #CCCCCC 100%), #D4D4D4;
+  padding: 6.4px;
+  border-radius: 19.2px;
+  margin: 25.6px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid #1F0D12;
+  box-shadow: 0 3px 5px black, 0 3px 9px rgba(0, 0, 0, 0.5);
+  border-spacing: 6px; 
+  line-height: normal;
+}
+
+.keypad-readout {
+  background: linear-gradient(to top, #1A211E 1%, #000000 100%), black;
+  color: #E22933;
+  font-size: 27px;
+  font-family: Consolas, monospace, sans-serif;
+  font-weight: bold;
+  border-radius: 3.84px;
+  border-top-left-radius: 6.4px;
+  border-top-right-radius: 6.4px;
+  border: 2px solid #32443A;
+  text-align: center;
+  padding: 7px;
+  text-shadow: 0 0 6px red;
+}
+
+.regular-button {
+  background: #714144; 
+  color: white;
+  font-family: monospace,sans-serif;
+  font-weight: bold;
+  text-align: center;
+  width: 47.36px;
+  height: 47.36px;
+  border-radius: 5.12px;
+  font-size: 23px;
+  transition: background 0.1s ease-out;
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.6);
+}
+.regular-button:hover {
+  background:#944449;
+}
+.regular-button:active {
+  background:#B9475B;
+}
+
+.clr-button {
+  border-bottom-left-radius: 12.8px;
+  background: #9E0E17;
+}
+.clr-button:hover {
+  background: #B90B15;
+}
+.clr-button:active {
+  background: #DE0814;
+}
+
+.go-button {
+  border-bottom-right-radius: 12.8px;
+  background: #43862E;
+}
+.go-button:hover {
+  background: #469A2B;
+}
+.go-button:active {
+  background: #4EC527;
+}
+
+.keypad-readout,
+.regular-button {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select  : none; /* Chrome/Safari/Opera */
+  -khtml-user-select   : none; /* Konqueror */
+  -moz-user-select     : none; /* Firefox */
+  -ms-user-select      : none; /* IE/Edge */
+  user-select          : none;
+  cursor: default;
+}
+
+.classified-info {
+  display: none;
+}
