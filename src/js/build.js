@@ -2,6 +2,7 @@
 
 var browserify = require("browserify");
 var fs = require("fs");
+var htmlMinifier = require("html-minifier");
 var jsdom = require("jsdom");
 
 var encodeNodeFactory = require("./encode-node-factory.js");
@@ -30,6 +31,10 @@ browserify("./src/js/scp-3125.js").bundle(function(err, buf) {
     var classifiedInfo = scp3125body.querySelector(".classified-info");
     classifiedInfo.parentNode.replaceChild(encodeNode(classifiedInfo, owtns.encrypt), classifiedInfo);
 
+    // Potential bug if the input HTML has alphabetical characters in the gaps
+    // because minification alters whitespace structure. TODO: move minification
+    // step to BEFORE encryption step?
+
     var templateHtml = fs.readFileSync("./src/html/template.html").toString();
     var templatedHtml = templateHtml
       .replace("###wikidotCss###", wikidotCss)
@@ -40,7 +45,11 @@ browserify("./src/js/scp-3125.js").bundle(function(err, buf) {
     // Whereas this is the markup you should actually use on Wikidot
     var templateTxt = fs.readFileSync("./src/wikidot/template.txt").toString();
     var txt = templateTxt
-      .replace("###templatedHtml###", templatedHtml);
+      .replace("###templatedHtml###", htmlMinifier.minify(templatedHtml, {
+        collapseWhitespace: true,
+        minifyCSS: true,
+        minifyJS: true
+      }));
 
     var outputFileName = inputFileName
       .replace(".html", ".txt");
