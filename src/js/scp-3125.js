@@ -48,7 +48,7 @@ window.press = function(keyText) {
         readout.textContent = 'DENIED';
       }, 0);
       setTimeout(function() {
-        readout.textContent = '\u0C7F';
+        readout.textContent = '\u0C35';
       }, 1900);
       setTimeout(function() {
         input = [];
