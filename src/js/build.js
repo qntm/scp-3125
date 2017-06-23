@@ -51,8 +51,10 @@ browserify("./src/js/scp-3125.js").bundle(function(err, buf) {
         minifyJS: true
       }));
 
-    var outputFileName = inputFileName
+    var outputFileName = "./dist/" + inputFileName
       .replace(".html", ".txt");
-    fs.writeFileSync("./dist/" + outputFileName, txt);
+    console.log("Creating output file", outputFileName);
+    fs.writeFileSync(outputFileName, txt);
   });
+  console.log("OK!");
 });

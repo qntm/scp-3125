@@ -4,7 +4,7 @@
   "description": "Encryption/build process for the SCP Foundation wiki entry \"SCP-3125\"",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "encrypt": "node src/js/build.js"
+    "encrypt": "npm install && node src/js/build.js"
   },
   "repository": {
     "type": "git",
