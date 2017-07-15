@@ -5,6 +5,31 @@
   </head>
   <body>
     <div class="public-info">
+      <!--
+        Note to translators! Please remember to also translate these four snippets of text.
+      -->
+      <script>
+        window.translations = {
+          // This is the text on the button on the lower left of the keypad.
+          // Pressing the button clears the input. This should be short,
+          // perhaps 3 characters at most. It can be a symbol.
+          clearButton: "CLR",
+
+          // This is the text on the button on the lower right of the keypad.
+          // Pressing the button submits the input. This should be short,
+          // perhaps 3 characters at most. It can be a symbol.
+          goButton: "GO",
+
+          // This text appears on the keypad display if the user enters an
+          // incorrect code. This should be about 10 characters long at most.
+          deniedMessage: "DENIED",
+
+          // This text appears on the keypad display if the user enters the
+          // correct code. This should be about 10 characters long at most.
+          grantedMessage: "GRANTED"
+        };
+      </script>
+
       <p><b>Item #</b>: SCP-3125</p>
 
       <p><b>Object Class</b>: Keter</p>
@@ -40,9 +65,9 @@
             <td class="regular-button" onclick="press('3');">3</td>
           </tr>
           <tr>
-            <td class="regular-button clr-button" onclick="press('CLR');">CLR</td>
+            <td class="regular-button clr-button" onclick="press('CLR');"></td>
             <td class="regular-button" onclick="press('0');">0</td>
-            <td class="regular-button go-button" onclick="press('GO');">GO</td>
+            <td class="regular-button go-button" onclick="press('GO');"></td>
           </tr>
         </tbody>
       </table>

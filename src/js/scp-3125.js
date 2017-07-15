@@ -32,7 +32,7 @@ window.press = function(keyText) {
       }, 1) === scpNumber
     ) {
       setTimeout(function() {
-        readout.textContent = 'GRANTED';
+        readout.textContent = window.translations.grantedMessage;
       }, 0);
       setTimeout(function() {
         var node = document.querySelector(".classified-info");
@@ -45,7 +45,7 @@ window.press = function(keyText) {
       }, 2000);
     } else {
       setTimeout(function() {
-        readout.textContent = 'DENIED';
+        readout.textContent = window.translations.deniedMessage;
       }, 0);
       setTimeout(function() {
         readout.textContent = '\u0C35';
@@ -86,3 +86,6 @@ window.toggle = function(cls) {
     expanded[i].classList.add("collapsed");
   }
 };
+
+document.querySelector(".clr-button").appendChild(document.createTextNode(window.translations.clearButton));
+document.querySelector(".go-button").appendChild(document.createTextNode(window.translations.goButton));
