@@ -30,8 +30,13 @@ var transform = function(backward, str) {
   }).join("");
 };
 
-var encrypt = transform.bind(undefined, false);
-var decrypt = transform.bind(undefined, true);
+var encrypt = function(str) {
+  return transform(false, encodeURIComponent(str));
+};
+
+var decrypt = function(str) {
+  return decodeURIComponent(transform(true, str));
+};
 
 module.exports = {
   encrypt: encrypt,

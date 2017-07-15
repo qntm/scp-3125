@@ -1,6 +1,6 @@
 {
   "name": "scp-3125",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Encryption/build process for the SCP Foundation wiki entry \"SCP-3125\"",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
