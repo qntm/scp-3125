@@ -36,7 +36,11 @@ window.press = function(keyText) {
       }, 0);
       setTimeout(function() {
         var node = document.querySelector(".classified-info");
-        node.style.display = "initial";
+
+        // This used to say "initial", which didn't work in IE
+        // (issue #1)
+        node.style.display = "block";
+
         node.parentNode.replaceChild(encodeNode(node, owtns.decrypt), node);
       }, 1000);
       setTimeout(function() {
