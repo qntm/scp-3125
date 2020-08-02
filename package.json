@@ -2,13 +2,14 @@
   "name": "scp-3125",
   "version": "1.1.0",
   "description": "Encryption/build process for the SCP Foundation wiki entry \"SCP-3125\"",
+  "homepage": "https://github.com/qntm/scp-3125",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/qntm/scp-3125.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "encrypt": "npm install && node src/js/build.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/qntm/scp-3125.git"
   },
   "keywords": [
     "scp",
@@ -28,7 +29,6 @@
   "bugs": {
     "url": "https://github.com/qntm/scp-3125/issues"
   },
-  "homepage": "https://github.com/qntm/scp-3125#readme",
   "devDependencies": {
     "browserify": "^14.4.0",
     "html-minifier": "^3.5.2",
