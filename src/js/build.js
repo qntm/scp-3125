@@ -35,6 +35,30 @@ browserify('./src/js/scp-3125.js').bundle(function (err, buf) {
     // because minification alters whitespace structure. TODO: move minification
     // step to BEFORE encryption step?
 
+    try {
+      fs.mkdirSync('./dist')
+    } catch (error) {
+      if (error.code !== 'EEXIST') {
+        throw error
+      }
+    }
+
+    try {
+      fs.mkdirSync('./dist/html')
+    } catch (error) {
+      if (error.code !== 'EEXIST') {
+        throw error
+      }
+    }
+
+    try {
+      fs.mkdirSync('./dist/wikidot')
+    } catch (error) {
+      if (error.code !== 'EEXIST') {
+        throw error
+      }
+    }
+
     var templateHtml = fs.readFileSync('./src/html/template.html').toString()
     var templatedHtml = templateHtml
       .replace('###wikidotCss###', wikidotCss)
@@ -42,7 +66,7 @@ browserify('./src/js/scp-3125.js').bundle(function (err, buf) {
       .replace('###scp3125Js###', scp3125Js)
       .replace('###scp3125Body###', scp3125body.innerHTML)
 
-    var outputHtmlName = './dist/' + inputFileName
+    var outputHtmlName = './dist/html/' + inputFileName
     console.log('Writing out HTML file', outputHtmlName)
     fs.writeFileSync(outputHtmlName, templatedHtml)
 
@@ -55,7 +79,7 @@ browserify('./src/js/scp-3125.js').bundle(function (err, buf) {
         minifyJS: true
       }))
 
-    var outputTxtName = './dist/' + inputFileName
+    var outputTxtName = './dist/wikidot/' + inputFileName
       .replace('.html', '.txt')
     console.log('Creating output Wikidot markup file', outputTxtName)
     fs.writeFileSync(outputTxtName, txt)
