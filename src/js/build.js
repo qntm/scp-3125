@@ -42,6 +42,10 @@ browserify('./src/js/scp-3125.js').bundle(function (err, buf) {
       .replace('###scp3125Js###', scp3125Js)
       .replace('###scp3125Body###', scp3125body.innerHTML)
 
+    var outputHtmlName = './dist/' + inputFileName
+    console.log('Writing out HTML file', outputHtmlName)
+    fs.writeFileSync(outputHtmlName, templatedHtml)
+
     // Whereas this is the markup you should actually use on Wikidot
     var templateTxt = fs.readFileSync('./src/wikidot/template.txt').toString()
     var txt = templateTxt
@@ -51,10 +55,10 @@ browserify('./src/js/scp-3125.js').bundle(function (err, buf) {
         minifyJS: true
       }))
 
-    var outputFileName = './dist/' + inputFileName
+    var outputTxtName = './dist/' + inputFileName
       .replace('.html', '.txt')
-    console.log('Creating output file', outputFileName)
-    fs.writeFileSync(outputFileName, txt)
+    console.log('Creating output Wikidot markup file', outputTxtName)
+    fs.writeFileSync(outputTxtName, txt)
   })
   console.log('OK!')
 })
