@@ -31,7 +31,7 @@
     "url": "https://github.com/qntm/scp-3125/issues"
   },
   "devDependencies": {
-    "browserify": "^14.4.0",
+    "browserify": "^15.0.0",
     "cypress": "^4.12.1",
     "express": "^4.17.1",
     "html-minifier": "^4.0.0",
