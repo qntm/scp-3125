@@ -4,41 +4,41 @@
   ROT-13.
 */
 
-"use strict";
+'use strict'
 
-var alphabet = "abcdefghijklmnopqrstuvwxyz";
+var alphabet = 'abcdefghijklmnopqrstuvwxyz'
 
-var key = "owtnsfvlnqyfzbdercgqiuapucjekhamblshwoxpgzyrttxkmi";
-var transform = function(backward, str) {
-  var sum = function(letter1, letter2) {
-    var index1 = alphabet.indexOf(letter1);
-    var index2 = alphabet.indexOf(letter2);
-    return alphabet.charAt((index1 + (backward ? alphabet.length - index2 : index2)) % alphabet.length);
-  };
+var key = 'owtnsfvlnqyfzbdercgqiuapucjekhamblshwoxpgzyrttxkmi'
+var transform = function (backward, str) {
+  var sum = function (letter1, letter2) {
+    var index1 = alphabet.indexOf(letter1)
+    var index2 = alphabet.indexOf(letter2)
+    return alphabet.charAt((index1 + (backward ? alphabet.length - index2 : index2)) % alphabet.length)
+  }
 
-  return str.split("").map(function(str_ch, i) {
-    var key_ch = key.charAt(i % key.length);
-    if(alphabet.indexOf(str_ch) !== -1) {
-      return sum(str_ch, key_ch, backward);
+  return str.split('').map(function (strCh, i) {
+    var keyCh = key.charAt(i % key.length)
+    if (alphabet.indexOf(strCh) !== -1) {
+      return sum(strCh, keyCh, backward)
     }
 
-    if(alphabet.indexOf(str_ch.toLowerCase()) !== -1) {
-      return sum(str_ch.toLowerCase(), key_ch, backward).toUpperCase();
+    if (alphabet.indexOf(strCh.toLowerCase()) !== -1) {
+      return sum(strCh.toLowerCase(), keyCh, backward).toUpperCase()
     }
 
-    return str_ch;
-  }).join("");
-};
+    return strCh
+  }).join('')
+}
 
-var encrypt = function(str) {
-  return transform(false, encodeURIComponent(str));
-};
+var encrypt = function (str) {
+  return transform(false, encodeURIComponent(str))
+}
 
-var decrypt = function(str) {
-  return decodeURIComponent(transform(true, str));
-};
+var decrypt = function (str) {
+  return decodeURIComponent(transform(true, str))
+}
 
 module.exports = {
   encrypt: encrypt,
   decrypt: decrypt
-};
+}
