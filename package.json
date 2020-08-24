@@ -35,7 +35,7 @@
     "cypress": "^5.0.0",
     "express": "^4.17.1",
     "html-minifier": "^4.0.0",
-    "jsdom": "^16.4.0",
+    "jsdom": "^14.0.0",
     "standard": "^14.3.4",
     "start-server-and-test": "^1.11.3"
   }
