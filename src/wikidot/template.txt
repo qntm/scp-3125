@@ -9,3 +9,11 @@
 
 [!-- This tag embeds everything in a <body> which sucks... --]
 [[html]]###templatedHtml###[[/html]]
+
+[[footnoteblock]]
+
+[[div class="footer-wikiwalk-nav"]]
+[[=]]
+<< [[[SCP-3124]]] | SCP-3125 | [[[SCP-3126]]] >>
+[[/=]]
+[[/div]]
