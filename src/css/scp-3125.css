@@ -9,7 +9,7 @@
   border: 2px solid #1F0D12;
   box-shadow: 0 3px 5px black, 0 3px 9px rgba(0, 0, 0, 0.5);
   border-spacing: 6px; 
-  line-height: normal;
+  line-height: 30px;
 }
 
 .keypad-readout {
