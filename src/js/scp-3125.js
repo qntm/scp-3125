@@ -75,9 +75,9 @@ window.press = function (keyText) {
     input.push(keyText)
   }
 
-  readout.textContent = input.length === 0 ? emptyReadout : input.map(function () {
-    return '-'
-  }).join('')
+  readout.textContent = input.length === 0
+    ? emptyReadout
+    : input.map(() => '-').join('')
 }
 
 // Section visibility toggles
