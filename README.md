@@ -1,6 +1,6 @@
 # scp-3125
 
-This small project builds and encrypts the text of the [SCP Foundation wiki](http://www.scp-wiki.net/) entry, [*SCP-3125*](http://scp-wiki.wikidot.com/scp-3125).
+This small project builds and encrypts the text of the [SCP Foundation wiki](http://scp-wiki.wikidot.com/) entry, [*SCP-3125*](http://scp-wiki.wikidot.com/scp-3125).
 
 The text of the wiki entry is kept in plain old, unencrypted HTML at [`src/html/scp-3125/en.html`](https://github.com/qntm/scp-3125/tree/master/src/html/scp-3125/en.html). When
 
