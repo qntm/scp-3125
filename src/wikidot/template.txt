@@ -1,6 +1,14 @@
-[[div class="pseudocrumbs"]]
-[[[foundation-tales|Tales Hub]]] » [[[series-archive|Series Archive]]] » [[[antimemetics-division-hub|Antimemetics Division Hub]]] » [[[antimemetics-division-hub|Five Five Five Five Five]]] » SCP-3125
-[[/div]]
+[[module CSS]]
+/* replace the text of the last breadcrumb as a hint to the keypad code */
+#breadcrumbs a:last-of-type {
+  font-size: 0;
+}
+
+#breadcrumbs a:last-of-type:after {
+  font-size: 12.8px;
+  content: "Five Five Five Five Five";
+}
+[[/module]]
 
 [[>]]
 [[module Rate]]
