@@ -29,3 +29,8 @@
 << [[[SCP-3124]]] | SCP-3125 | [[[SCP-3126]]] >>
 [[/=]]
 [[/div]]
+
+[[include :scp-wiki:component:license-box]]
+=====
+=====
+[[include :scp-wiki:component:license-box-end]]
