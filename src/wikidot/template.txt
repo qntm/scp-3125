@@ -14,6 +14,10 @@
 [[module Rate]]
 [[/>]]
 
+[[div style="text-align: right; margin-right: 2em; margin-top: -20px;"]]
+by [[[qntm-s-author-page|qntm]]]
+[[/div]]
+
 [!--
   Keypad interface by reaper600.
   Translating this page? See <http://www.scp-wiki.net/forum/t-2263698/scp-3125#post-2811145>
