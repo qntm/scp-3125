@@ -2,9 +2,6 @@ language: node_js
 node_js:
   - 14
 cache:
+  # cache Cypress binaries
   directories:
     - ~/.cache
-script:
-  - npm run test
-  - npm run build
-  - npm run test-built
