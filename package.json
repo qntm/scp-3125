@@ -37,6 +37,6 @@
     "html-minifier": "^4.0.0",
     "jsdom": "^16.4.0",
     "standard": "^16.0.1",
-    "start-server-and-test": "^1.11.3"
+    "start-server-and-test": "^1.13.1"
   }
 }
