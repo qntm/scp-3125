@@ -1,31 +1,31 @@
 'use strict'
 
-var encodeNodeFactory = require('./encode-node-factory.js')
-var owtns = require('./owtns.js')
+const encodeNodeFactory = require('./encode-node-factory.js')
+const owtns = require('./owtns.js')
 
-var encodeNode = encodeNodeFactory(window)
+const encodeNode = encodeNodeFactory(window)
 
 // eslint-disable-next-line no-sparse-arrays
-var magicNumber = [
+const magicNumber = [
   ,
   ,
   ,
   ,,
 ].length
-var scpNumber = Math.pow(magicNumber, magicNumber)
-var emptyReadout = '\u00A0' // non-breaking space
+const scpNumber = Math.pow(magicNumber, magicNumber)
+const emptyReadout = '\u00A0' // non-breaking space
 
-var input = []
-var maxInputLength = magicNumber
+let input = []
+const maxInputLength = magicNumber
 
-var busy = false
+let busy = false
 
 window.press = function (keyText) {
   if (busy) {
     return
   }
 
-  var readout = document.body.querySelector('.keypad-readout')
+  const readout = document.body.querySelector('.keypad-readout')
 
   if (keyText === 'GO') {
     busy = true
@@ -41,7 +41,7 @@ window.press = function (keyText) {
         readout.textContent = window.translations.grantedMessage
       }, 0)
       setTimeout(function () {
-        var node = document.querySelector('.classified-info')
+        const node = document.querySelector('.classified-info')
 
         // This used to say "initial", which didn't work in IE
         // (issue #1)
@@ -82,9 +82,9 @@ window.press = function (keyText) {
 
 // Section visibility toggles
 window.toggle = function (cls) {
-  var collapsed = document.querySelectorAll('.' + cls + '.collapsed')
-  var expanded = document.querySelectorAll('.' + cls + ':not(.collapsed)')
-  var i
+  const collapsed = document.querySelectorAll('.' + cls + '.collapsed')
+  const expanded = document.querySelectorAll('.' + cls + ':not(.collapsed)')
+  let i
   for (i = 0; i < collapsed.length; i++) {
     collapsed[i].classList.remove('collapsed')
   }
