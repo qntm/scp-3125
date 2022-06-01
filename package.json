@@ -11,7 +11,7 @@
     "standard": "standard",
     "test": "npm run standard && npm run build && npm run test-built",
     "build": "node src/js/build.js",
-    "test-built": "start-server-and-test \"node src/js/server.js\" http://localhost:3000/dist/html/en.html \"cypress run --spec src/js/test-built.js\""
+    "test-built": "start-server-and-test \"node src/js/server.js\" http://localhost:3000/dist/html/en.html \"cypress run\""
   },
   "keywords": [
     "scp",
@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "browserify": "^17.0.0",
-    "cypress": "^9.1.0",
+    "cypress": "^10.0.0",
     "express": "^4.17.1",
     "html-minifier": "^4.0.0",
     "jsdom": "^19.0.0",
