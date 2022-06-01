@@ -39,6 +39,6 @@ const decrypt = function (str) {
 }
 
 module.exports = {
-  encrypt: encrypt,
-  decrypt: decrypt
+  encrypt,
+  decrypt
 }
