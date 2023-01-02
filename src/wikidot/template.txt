@@ -10,13 +10,7 @@
 }
 [[/module]]
 
-[[>]]
-[[module Rate]]
-[[/>]]
-
-[[div style="text-align: right; margin-right: 2em; margin-top: -20px;"]]
-by [[[qntm-s-author-page|qntm]]]
-[[/div]]
+[[include more-by:qntm]]
 
 [!--
   Keypad interface by reaper600.
