@@ -38,6 +38,6 @@
     "html-minifier": "^4.0.0",
     "jsdom": "^21.1.0",
     "standard": "^17.0.0",
-    "start-server-and-test": "^1.11.3"
+    "start-server-and-test": "^2.0.0"
   }
 }
