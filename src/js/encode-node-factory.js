@@ -4,11 +4,9 @@
   new `Node` object, does not harm the original.
 */
 
-'use strict'
-
 // Ugh, this is gross, but we need to support implementations
 // of window coming either from the browser or from jsdom
-module.exports = function (windowImpl) {
+export default function (windowImpl) {
   const document = windowImpl.document
   const Node = windowImpl.Node
 

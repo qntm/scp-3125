@@ -1,12 +1,9 @@
-'use strict'
-
-const browserify = require('browserify')
-const fs = require('fs')
-const htmlMinifier = require('html-minifier')
-const jsdom = require('jsdom')
-
-const encodeNodeFactory = require('./encode-node-factory.js')
-const owtns = require('./owtns.js')
+import fs from 'node:fs'
+import browserify from 'browserify'
+import htmlMinifier from 'html-minifier'
+import jsdom from 'jsdom'
+import encodeNodeFactory from './encode-node-factory.js'
+import * as owtns from './owtns.js'
 
 // No synchronous browserify :-/
 browserify('./src/js/scp-3125.js').bundle(function (err, buf) {
