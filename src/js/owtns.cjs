@@ -28,10 +28,13 @@ const transform = function (backward, str) {
   }).join('')
 }
 
-export const encrypt = function (str) {
+const encrypt = function (str) {
   return transform(false, encodeURIComponent(str))
 }
 
-export const decrypt = function (str) {
+const decrypt = function (str) {
   return decodeURIComponent(transform(true, str))
 }
+
+module.exports.encrypt = encrypt
+module.exports.decrypt = decrypt

@@ -6,7 +6,7 @@
 
 // Ugh, this is gross, but we need to support implementations
 // of window coming either from the browser or from jsdom
-export default function (windowImpl) {
+module.exports = function (windowImpl) {
   const document = windowImpl.document
   const Node = windowImpl.Node
 
