@@ -4,8 +4,6 @@
   ROT-13.
 */
 
-'use strict'
-
 const alphabet = 'abcdefghijklmnopqrstuvwxyz'
 
 const key = 'owtnsfvlnqyfzbdercgqiuapucjekhamblshwoxpgzyrttxkmi'
@@ -38,7 +36,5 @@ const decrypt = function (str) {
   return decodeURIComponent(transform(true, str))
 }
 
-module.exports = {
-  encrypt,
-  decrypt
-}
+module.exports.encrypt = encrypt
+module.exports.decrypt = decrypt

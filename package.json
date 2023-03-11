@@ -7,6 +7,7 @@
     "type": "git",
     "url": "git://github.com/qntm/scp-3125.git"
   },
+  "type": "module",
   "scripts": {
     "standard": "standard",
     "test": "npm run standard && npm run build && npm run test-built",

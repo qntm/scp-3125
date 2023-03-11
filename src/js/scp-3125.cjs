@@ -1,7 +1,5 @@
-'use strict'
-
-const encodeNodeFactory = require('./encode-node-factory.js')
-const owtns = require('./owtns.js')
+const encodeNodeFactory = require('./encode-node-factory.cjs')
+const owtns = require('./owtns.cjs')
 
 const encodeNode = encodeNodeFactory(window)
 
