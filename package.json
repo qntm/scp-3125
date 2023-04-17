@@ -10,9 +10,10 @@
   "type": "module",
   "scripts": {
     "standard": "standard",
+    "start": "node src/js/server.js",
     "test": "npm run standard && npm run build && npm run test-built",
     "build": "node src/js/build.js",
-    "test-built": "start-server-and-test \"node src/js/server.js\" http://localhost:3000/dist/html/en.html \"cypress run\""
+    "test-built": "start-server-and-test \"npm run start\" http://localhost:3000/dist/html/en.html \"cypress run\""
   },
   "keywords": [
     "scp",

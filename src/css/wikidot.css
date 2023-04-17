@@ -1,9 +1,29 @@
 /* CSS duplicated from Wikidot proper -_- */
+@font-face {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('https://scpwiki.github.io/sigma/fonts/Inter-roman.var.woff2?v=3.19') format('woff2');
+}
+
+@font-face {
+  font-family: Inter;
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('https://scpwiki.github.io/sigma/fonts/Inter-italic.var.woff2?v=3.19') format('woff2');
+}
+
 body {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 12.8px; /* 16px * 0.8 */
+  font-size: .95em;
   color: #333;
-  line-height: 141%;
+  font-family: Inter,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Fira Sans','Droid Sans','Helvetica Neue',sans-serif;
+  font-feature-settings: 'case','ss01','ss04';
+}
+
+li, p {
+  line-height: 1.5;
 }
 
 blockquote {
