@@ -5,7 +5,7 @@
 }
 
 #breadcrumbs a:last-of-type:after {
-  font-size: 12.8px;
+  font-size: 15.2px;
   content: "Five Five Five Five Five";
 }
 [[/module]]
