@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "browserify": "^17.0.0",
-    "cypress": "^14.1.0",
+    "cypress": "^15.0.0",
     "express": "^5.0.1",
     "html-minifier": "^4.0.0",
     "jsdom": "^26.0.0",
