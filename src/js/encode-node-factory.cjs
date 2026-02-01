@@ -6,11 +6,11 @@
 
 // Ugh, this is gross, but we need to support implementations
 // of window coming either from the browser or from jsdom
-module.exports = function (windowImpl) {
+module.exports = windowImpl => {
   const document = windowImpl.document
   const Node = windowImpl.Node
 
-  const encodeNode = function (node, proc) {
+  const encodeNode = (node, proc) => {
     let node2
     if (node.nodeType === Node.TEXT_NODE) {
       node2 = document.createTextNode(proc(node.nodeValue))

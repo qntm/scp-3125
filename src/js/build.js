@@ -6,7 +6,7 @@ import encodeNodeFactory from './encode-node-factory.cjs'
 import * as owtns from './owtns.cjs'
 
 // No synchronous browserify :-/
-browserify('./src/js/scp-3125.cjs').bundle(function (err, buf) {
+browserify('./src/js/scp-3125.cjs').bundle((err, buf) => {
   if (err) {
     throw err
   }
@@ -16,7 +16,7 @@ browserify('./src/js/scp-3125.cjs').bundle(function (err, buf) {
   const scp3125Js = buf.toString()
 
   const inputFileNames = fs.readdirSync('./src/html/scp-3125')
-  inputFileNames.forEach(function (inputFileName) {
+  inputFileNames.forEach(inputFileName => {
     const scp3125Html = fs.readFileSync('./src/html/scp-3125/' + inputFileName).toString()
 
     // Parse and extract everything inside the <body>...</body> tags

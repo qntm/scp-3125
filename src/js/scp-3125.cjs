@@ -18,7 +18,7 @@ const maxInputLength = magicNumber
 
 let busy = false
 
-window.press = function (keyText) {
+window.press = keyText => {
   if (busy) {
     return
   }
@@ -29,16 +29,16 @@ window.press = function (keyText) {
     busy = true
 
     if (
-      input.map(function (digit) {
+      input.map(digit => {
         return parseInt(digit, 10)
-      }).reduce(function (a, b) {
+      }).reduce((a, b) => {
         return a * b
       }, 1) === scpNumber
     ) {
-      setTimeout(function () {
+      setTimeout(() => {
         readout.textContent = window.translations.grantedMessage
       }, 0)
-      setTimeout(function () {
+      setTimeout(() => {
         const node = document.querySelector('.classified-info')
 
         // This used to say "initial", which didn't work in IE
@@ -47,18 +47,18 @@ window.press = function (keyText) {
 
         node.parentNode.replaceChild(encodeNode(node, owtns.decrypt), node)
       }, 1000)
-      setTimeout(function () {
+      setTimeout(() => {
         readout.textContent = emptyReadout
         // Leave busy, disabling keypad
       }, 2000)
     } else {
-      setTimeout(function () {
+      setTimeout(() => {
         readout.textContent = window.translations.deniedMessage
       }, 0)
-      setTimeout(function () {
+      setTimeout(() => {
         readout.textContent = '\u0C35'
       }, 1900)
-      setTimeout(function () {
+      setTimeout(() => {
         input = []
         readout.textContent = emptyReadout
         busy = false
@@ -79,7 +79,7 @@ window.press = function (keyText) {
 }
 
 // Section visibility toggles
-window.toggle = function (cls) {
+window.toggle = cls => {
   const collapsed = document.querySelectorAll('.' + cls + '.collapsed')
   const expanded = document.querySelectorAll('.' + cls + ':not(.collapsed)')
   let i

@@ -7,14 +7,14 @@
 const ALPHABET = 'abcdefghijklmnopqrstuvwxyz'
 const KEY = 'owtnsfvlnqyfzbdercgqiuapucjekhamblshwoxpgzyrttxkmi'
 
-const transform = function (backward, str) {
-  const sum = function (letter1, letter2) {
+const transform = (backward, str) => {
+  const sum = (letter1, letter2) => {
     const index1 = ALPHABET.indexOf(letter1)
     const index2 = ALPHABET.indexOf(letter2)
     return ALPHABET.charAt((index1 + (backward ? ALPHABET.length - index2 : index2)) % ALPHABET.length)
   }
 
-  return str.split('').map(function (strCh, i) {
+  return str.split('').map((strCh, i) => {
     const keyCh = KEY.charAt(i % KEY.length)
     if (ALPHABET.indexOf(strCh) !== -1) {
       return sum(strCh, keyCh, backward)
@@ -28,13 +28,8 @@ const transform = function (backward, str) {
   }).join('')
 }
 
-const encrypt = function (str) {
-  return transform(false, encodeURIComponent(str))
-}
-
-const decrypt = function (str) {
-  return decodeURIComponent(transform(true, str))
-}
+const encrypt = str => transform(false, encodeURIComponent(str))
+const decrypt = str => decodeURIComponent(transform(true, str))
 
 module.exports.encrypt = encrypt
 module.exports.decrypt = decrypt
