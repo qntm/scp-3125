@@ -4,23 +4,23 @@
   ROT-13.
 */
 
-const alphabet = 'abcdefghijklmnopqrstuvwxyz'
+const ALPHABET = 'abcdefghijklmnopqrstuvwxyz'
+const KEY = 'owtnsfvlnqyfzbdercgqiuapucjekhamblshwoxpgzyrttxkmi'
 
-const key = 'owtnsfvlnqyfzbdercgqiuapucjekhamblshwoxpgzyrttxkmi'
 const transform = function (backward, str) {
   const sum = function (letter1, letter2) {
-    const index1 = alphabet.indexOf(letter1)
-    const index2 = alphabet.indexOf(letter2)
-    return alphabet.charAt((index1 + (backward ? alphabet.length - index2 : index2)) % alphabet.length)
+    const index1 = ALPHABET.indexOf(letter1)
+    const index2 = ALPHABET.indexOf(letter2)
+    return ALPHABET.charAt((index1 + (backward ? ALPHABET.length - index2 : index2)) % ALPHABET.length)
   }
 
   return str.split('').map(function (strCh, i) {
-    const keyCh = key.charAt(i % key.length)
-    if (alphabet.indexOf(strCh) !== -1) {
+    const keyCh = KEY.charAt(i % KEY.length)
+    if (ALPHABET.indexOf(strCh) !== -1) {
       return sum(strCh, keyCh, backward)
     }
 
-    if (alphabet.indexOf(strCh.toLowerCase()) !== -1) {
+    if (ALPHABET.indexOf(strCh.toLowerCase()) !== -1) {
       return sum(strCh.toLowerCase(), keyCh, backward).toUpperCase()
     }
 
