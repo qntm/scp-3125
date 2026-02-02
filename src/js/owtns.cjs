@@ -5,42 +5,33 @@
 */
 
 const L = 26
-const CHAR_CODE_UPPER_START = 'A'.charCodeAt(0)
-const CHAR_CODE_LOWER_START = 'a'.charCodeAt(0)
-const CHAR_CODE_UPPER_END = CHAR_CODE_UPPER_START + L
-const CHAR_CODE_LOWER_END = CHAR_CODE_LOWER_START + L
+const UPPER_START = 'A'.charCodeAt(0)
+const LOWER_START = 'a'.charCodeAt(0)
+const UPPER_END = UPPER_START + L
+const LOWER_END = LOWER_START + L
 
-const KEY = 'owtnsfvlnqyfzbdercgqiuapucjekhamblshwoxpgzyrttxkmi'
-const l = KEY.length
+const KEY_ENCRYPT = 'OWTNSFVLNQYFZBDERCGQIUAPUCJEKHAMBLSHWOXPGZYRTTXKMI'
+const KEY_DECRYPT = 'MEHNIVFPNKCVBZXWJYUKSGALGYRWQTAOZPITEMDLUBCJHHDQOS'
 
-const ksForward = Array(l)
-const ksBackward = Array(l)
-for (let i = 0; i < l; i++) {
-  let k = KEY.charCodeAt(i)
-  k -= CHAR_CODE_LOWER_START
-  ksForward[i] = k
-  ksBackward[i] = L - k
-}
-
-const transform = (backward, str) => {
-  const ks = backward ? ksBackward : ksForward
-
+const transform = (str, key) => {
   const l = str.length
   let output = ''
   for (let i = 0; i < l; i++) {
-    const k = ks[i % KEY.length]
+    let k = key.charCodeAt(i % key.length)
+    k -= UPPER_START
+
     let c = str.charCodeAt(i)
 
-    if (CHAR_CODE_UPPER_START <= c && c < CHAR_CODE_UPPER_END) {
-      c -= CHAR_CODE_UPPER_START
+    if (UPPER_START <= c && c < UPPER_END) {
+      c -= UPPER_START
       c = (c + k) % L
-      c += CHAR_CODE_UPPER_START
+      c += UPPER_START
     }
 
-    if (CHAR_CODE_LOWER_START <= c && c < CHAR_CODE_LOWER_END) {
-      c -= CHAR_CODE_LOWER_START
+    if (LOWER_START <= c && c < LOWER_END) {
+      c -= LOWER_START
       c = (c + k) % L
-      c += CHAR_CODE_LOWER_START
+      c += LOWER_START
     }
 
     output += String.fromCharCode(c)
@@ -49,8 +40,8 @@ const transform = (backward, str) => {
   return output
 }
 
-const encrypt0 = str => transform(false, str)
-const decrypt0 = str => transform(true, str)
+const encrypt0 = str => transform(str, KEY_ENCRYPT)
+const decrypt0 = str => transform(str, KEY_DECRYPT)
 
 const encrypt = str => encrypt0(encodeURIComponent(str))
 const decrypt = str => decodeURIComponent(decrypt0(str))
