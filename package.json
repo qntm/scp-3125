@@ -11,7 +11,8 @@
   "scripts": {
     "standard": "standard",
     "start": "node src/js/server.js",
-    "test": "npm run standard && npm run build && npm run test-built",
+    "unit": "node --test --experimental-test-coverage --test-coverage-functions=100 --test-coverage-lines=100 --test-coverage-branches=100",
+    "test": "npm run standard && npm run unit && npm run build && npm run test-built",
     "build": "node src/js/build.js",
     "test-built": "start-server-and-test \"npm run start\" http://localhost:3000/dist/html/en.html \"cypress run\""
   },

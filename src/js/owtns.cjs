@@ -4,32 +4,47 @@
   ROT-13.
 */
 
-const ALPHABET = 'abcdefghijklmnopqrstuvwxyz'
+const CHAR_CODE_UPPER_A = 'A'.charCodeAt(0)
+const CHAR_CODE_LOWER_A = 'a'.charCodeAt(0)
+const L = 26
+
 const KEY = 'owtnsfvlnqyfzbdercgqiuapucjekhamblshwoxpgzyrttxkmi'
 
 const transform = (backward, str) => {
-  const sum = (letter1, letter2) => {
-    const index1 = ALPHABET.indexOf(letter1)
-    const index2 = ALPHABET.indexOf(letter2)
-    return ALPHABET.charAt((index1 + (backward ? ALPHABET.length - index2 : index2)) % ALPHABET.length)
+  const l = str.length
+  const output = new Uint16Array(l)
+  for (let i = 0; i < l; i++) {
+    const c = str.charCodeAt(i)
+    const k = KEY.charCodeAt(i % KEY.length) - CHAR_CODE_LOWER_A
+
+    if (CHAR_CODE_LOWER_A <= charCode && charCode < CHAR_CODE_LOWER_A + L) {
+      const index1 = c - CHAR_CODE_LOWER_A
+      const index3 = (backward ? (index1 - k + L) : (index1 + k)) % L
+      output[i] = CHAR_CODE_LOWER_A + index3
+      continue
+    }
+
+    if (CHAR_CODE_UPPER_A <= charCode && charCode < CHAR_CODE_UPPER_A + L) {
+      const index1 = c - CHAR_CODE_UPPER_A
+      const index3 = (backward ? (index1 - k + L) : (index1 + k)) % L
+      output[i] = CHAR_CODE_UPPER_A + index3
+      continue
+    }
+
+    output[i] = charCode
   }
 
-  return str.split('').map((strCh, i) => {
-    const keyCh = KEY.charAt(i % KEY.length)
-    if (ALPHABET.indexOf(strCh) !== -1) {
-      return sum(strCh, keyCh, backward)
-    }
-
-    if (ALPHABET.indexOf(strCh.toLowerCase()) !== -1) {
-      return sum(strCh.toLowerCase(), keyCh, backward).toUpperCase()
-    }
-
-    return strCh
-  }).join('')
+  return new TextDecoder('utf-16').decode(output)
 }
 
-const encrypt = str => transform(false, encodeURIComponent(str))
-const decrypt = str => decodeURIComponent(transform(true, str))
+const encrypt0 = str => transform(false, str)
+const decrypt0 = str => transform(true, str)
+
+const encrypt = str => encrypt0(encodeURIComponent(str))
+const decrypt = str => decodeURIComponent(decrypt0(str))
+
+module.exports.encrypt0 = encrypt0
+module.exports.decrypt0 = decrypt0
 
 module.exports.encrypt = encrypt
 module.exports.decrypt = decrypt
