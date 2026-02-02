@@ -4,37 +4,49 @@
   ROT-13.
 */
 
-const CHAR_CODE_UPPER_A = 'A'.charCodeAt(0)
-const CHAR_CODE_LOWER_A = 'a'.charCodeAt(0)
 const L = 26
+const CHAR_CODE_UPPER_START = 'A'.charCodeAt(0)
+const CHAR_CODE_LOWER_START = 'a'.charCodeAt(0)
+const CHAR_CODE_UPPER_END = CHAR_CODE_UPPER_START + L
+const CHAR_CODE_LOWER_END = CHAR_CODE_LOWER_START + L
 
 const KEY = 'owtnsfvlnqyfzbdercgqiuapucjekhamblshwoxpgzyrttxkmi'
+const l = KEY.length
+
+const ksForward = Array(l)
+const ksBackward = Array(l)
+for (let i = 0; i < l; i++) {
+  let k = KEY.charCodeAt(i)
+  k -= CHAR_CODE_LOWER_START
+  ksForward[i] = k
+  ksBackward[i] = L - k
+}
 
 const transform = (backward, str) => {
+  const ks = backward ? ksBackward : ksForward
+
   const l = str.length
-  const output = new Uint16Array(l)
+  let output = ''
   for (let i = 0; i < l; i++) {
-    const c = str.charCodeAt(i)
-    const k = KEY.charCodeAt(i % KEY.length) - CHAR_CODE_LOWER_A
+    const k = ks[i % KEY.length]
+    let c = str.charCodeAt(i)
 
-    if (CHAR_CODE_LOWER_A <= charCode && charCode < CHAR_CODE_LOWER_A + L) {
-      const index1 = c - CHAR_CODE_LOWER_A
-      const index3 = (backward ? (index1 - k + L) : (index1 + k)) % L
-      output[i] = CHAR_CODE_LOWER_A + index3
-      continue
+    if (CHAR_CODE_UPPER_START <= c && c < CHAR_CODE_UPPER_END) {
+      c -= CHAR_CODE_UPPER_START
+      c = (c + k) % L
+      c += CHAR_CODE_UPPER_START
     }
 
-    if (CHAR_CODE_UPPER_A <= charCode && charCode < CHAR_CODE_UPPER_A + L) {
-      const index1 = c - CHAR_CODE_UPPER_A
-      const index3 = (backward ? (index1 - k + L) : (index1 + k)) % L
-      output[i] = CHAR_CODE_UPPER_A + index3
-      continue
+    if (CHAR_CODE_LOWER_START <= c && c < CHAR_CODE_LOWER_END) {
+      c -= CHAR_CODE_LOWER_START
+      c = (c + k) % L
+      c += CHAR_CODE_LOWER_START
     }
 
-    output[i] = charCode
+    output += String.fromCharCode(c)
   }
 
-  return new TextDecoder('utf-16').decode(output)
+  return output
 }
 
 const encrypt0 = str => transform(false, str)

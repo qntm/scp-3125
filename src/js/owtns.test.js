@@ -37,6 +37,25 @@ describe('owtns.cjs', () => {
         assert.equal(owtns.decrypt(owtns.encrypt(text)), text)
       })
     })
+
+    it('everything', () => {
+      for (let i = 0; i < 65536; i++) {
+        const s = String.fromCharCode(i)
+        assert.equal(owtns.decrypt0(owtns.encrypt0(s)), s)
+        assert.equal(owtns.encrypt0(owtns.decrypt0(s)), s)
+        // assert.equal(owtns.decrypt(owtns.encrypt(s)), s) // ?
+      }
+    })
+
+    it('everything at once', () => {
+      let everything = ''
+      for (let i = 0; i < 65536; i++) {
+        everything += String.fromCharCode(i)
+      }
+      assert.equal(owtns.decrypt0(owtns.encrypt0(everything)), everything)
+      assert.equal(owtns.encrypt0(owtns.decrypt0(everything)), everything)
+      // assert.equal(owtns.decrypt(owtns.encrypt(everything)), everything) // ?
+    })
   })
 })
 
