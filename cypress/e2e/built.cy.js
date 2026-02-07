@@ -2,7 +2,7 @@
 
 describe('SCP-3125', () => {
   it('loads and decrypts', () => {
-    cy.visit('http://localhost:3000/dist/html/en.html')
+    cy.visit('http://localhost:3000/en.html')
     cy.contains('Object Class: Keter')
 
     cy.get('.regular-button').contains('5').click()

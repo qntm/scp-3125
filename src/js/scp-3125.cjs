@@ -1,5 +1,5 @@
-const encodeNodeFactory = require('./encode-node-factory.cjs')
-const owtns = require('./owtns.cjs')
+const encodeNodeFactory = require('../../common/encode-node-factory.cjs')
+const owtns = require('../../common/owtns.cjs')
 
 const encodeNode = encodeNodeFactory(window)
 

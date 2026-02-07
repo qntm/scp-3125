@@ -2,8 +2,8 @@ import fs from 'node:fs'
 import browserify from 'browserify'
 import htmlMinifier from 'html-minifier'
 import jsdom from 'jsdom'
-import encodeNodeFactory from './encode-node-factory.cjs'
-import * as owtns from './owtns.cjs'
+import encodeNodeFactory from '../common/encode-node-factory.cjs'
+import * as owtns from '../common/owtns.cjs'
 
 // No synchronous browserify :-/
 browserify('./src/js/scp-3125.cjs').bundle((err, buf) => {
