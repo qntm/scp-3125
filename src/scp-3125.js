@@ -1,7 +1,7 @@
 import { encodeNode } from '../common/encode-node.js'
 import * as owtns from '../common/owtns.js'
 
-// eslint-disable-next-line no-sparse-arrays
+// eslint-disable-next-line no-sparse-arrays, comma-spacing
 const MAGIC_NUMBER = [,,,,,].length
 const SCP_NUMBER = Math.pow(MAGIC_NUMBER, MAGIC_NUMBER)
 const EMPTY_READOUT = '\u00A0' // non-breaking space

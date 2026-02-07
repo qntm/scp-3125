@@ -1,6 +1,5 @@
 import fs from 'node:fs'
 
-import browserify from 'browserify'
 import * as esbuild from 'esbuild'
 import jsdom from 'jsdom'
 

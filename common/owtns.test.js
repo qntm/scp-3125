@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import { describe, it } from 'node:test'
 
-import * as owtns from './owtns.cjs'
+import * as owtns from './owtns.js'
 
 describe('owtns.cjs', () => {
   it('empty string', () => {
