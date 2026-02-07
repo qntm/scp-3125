@@ -53,4 +53,15 @@ describe('owtns.cjs', () => {
       assert.equal(owtns.encrypt(owtns.decrypt(everything)), everything)
     })
   })
+
+  it('loops after 26 applications', () => {
+    // Applying the encoding repeatedly to a given letter moves it forward by 0 to 25 letters.
+    // This can loop after the following number of applications: A = 1, N = 2, BDFHJLPRTVXZ = 13, CEGIKMOQSUWY = 26
+    let text = 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
+    for (let i = 0; i < 26; i++) {
+      console.log(text)
+      text = owtns.encrypt(text)
+    }
+    assert.equal(text, 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
+  })
 })
