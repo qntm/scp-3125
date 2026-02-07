@@ -10,10 +10,11 @@
   "type": "module",
   "scripts": {
     "standard": "standard",
-    "start": "node src/js/server.js",
-    "test": "npm run standard && npm run build && npm run test-built",
-    "build": "node src/js/build.js",
-    "test-built": "start-server-and-test \"npm run start\" http://localhost:3000/dist/html/en.html \"cypress run\""
+    "start": "node scripts/server.js",
+    "unit": "node --test --experimental-test-coverage --test-coverage-functions=100 --test-coverage-lines=100 --test-coverage-branches=100",
+    "test": "npm run standard && npm run unit && npm run build && npm run test-built",
+    "build": "node scripts/build.js",
+    "test-built": "start-server-and-test \"npm run start\" http://localhost:3000/en.html \"cypress run\""
   },
   "keywords": [
     "scp",
@@ -34,10 +35,9 @@
     "url": "https://github.com/qntm/scp-3125/issues"
   },
   "devDependencies": {
-    "browserify": "^17.0.0",
     "cypress": "^15.0.0",
+    "esbuild": "^0.27.3",
     "express": "^5.2.0",
-    "html-minifier": "^4.0.0",
     "jsdom": "^27.0.0",
     "standard": "^17.0.0",
     "start-server-and-test": "^2.0.3"
