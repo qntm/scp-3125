@@ -23,7 +23,7 @@ const templateHtml = fs.readFileSync('./src/template.html', 'utf8')
 
 const bodyFileNames = fs.readdirSync('./src/bodies')
 bodyFileNames.forEach(bodyFileName => {
-  const scp3125Body = fs.readFileSync('./src/bodies/' + bodyFileName, 'utf8')
+  const scp3125Body = fs.readFileSync(`./src/bodies/${bodyFileName}`, 'utf8')
 
   let templatedHtml = templateHtml
     .replace('###scp3125Js###', scp3125Js)
@@ -34,7 +34,7 @@ bodyFileNames.forEach(bodyFileName => {
   encodeNode(scp3125Jsdom.window.document.querySelector('.classified-info'), owtns.encrypt)
   templatedHtml = scp3125Jsdom.serialize()
 
-  const outputHtmlName = './dist/html/' + bodyFileName
+  const outputHtmlName = `./dist/html/${bodyFileName}`
   console.log('Writing out HTML file', outputHtmlName)
   fs.writeFileSync(outputHtmlName, templatedHtml)
 
@@ -42,7 +42,7 @@ bodyFileNames.forEach(bodyFileName => {
   const templateTxt = fs.readFileSync('./src/template.wikidot', 'utf8')
   const txt = templateTxt.replace('###templatedHtml###', templatedHtml)
 
-  const outputTxtName = './dist/wikidot/' + bodyFileName.replace('.html', '.txt')
+  const outputTxtName = `./dist/wikidot/${bodyFileName.replace('.html', '.txt')}`
   console.log('Creating output Wikidot markup file', outputTxtName)
   fs.writeFileSync(outputTxtName, txt)
 })
