@@ -44,14 +44,8 @@ const transform = (str, key) => {
   return output
 }
 
-const encrypt0 = str => transform(str, KEY_ENCRYPT)
-const decrypt0 = str => transform(str, KEY_DECRYPT)
-
-const encrypt = str => encrypt0(encodeURIComponent(str))
-const decrypt = str => decodeURIComponent(decrypt0(str))
-
-module.exports.encrypt0 = encrypt0
-module.exports.decrypt0 = decrypt0
+const decrypt = str => transform(str, KEY_DECRYPT)
+const encrypt = str => transform(str, KEY_ENCRYPT)
 
 module.exports.encrypt = encrypt
 module.exports.decrypt = decrypt

@@ -1,6 +1,5 @@
 import fs from 'node:fs'
 import browserify from 'browserify'
-import htmlMinifier from 'html-minifier'
 import jsdom from 'jsdom'
 import encodeNodeFactory from '../common/encode-node-factory.cjs'
 import * as owtns from '../common/owtns.cjs'
@@ -69,12 +68,7 @@ browserify('./src/js/scp-3125.cjs').bundle((err, buf) => {
 
     // Whereas this is the markup you should actually use on Wikidot
     const templateTxt = fs.readFileSync('./src/wikidot/template.txt').toString()
-    const txt = templateTxt
-      .replace('###templatedHtml###', htmlMinifier.minify(templatedHtml, {
-        collapseWhitespace: true,
-        minifyCSS: true,
-        minifyJS: true
-      }))
+    const txt = templateTxt.replace('###templatedHtml###', templatedHtml)
 
     const outputTxtName = './dist/wikidot/' + inputFileName
       .replace('.html', '.txt')
