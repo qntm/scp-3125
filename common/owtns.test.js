@@ -59,7 +59,6 @@ describe('owtns.cjs', () => {
     // This can loop after the following number of applications: A = 1, N = 2, BDFHJLPRTVXZ = 13, CEGIKMOQSUWY = 26
     let text = 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
     for (let i = 0; i < 26; i++) {
-      console.log(text)
       text = owtns.encrypt(text)
     }
     assert.equal(text, 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
