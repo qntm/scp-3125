@@ -14,27 +14,31 @@ const KEY_ENCRYPT = 'OWTNSFVLNQYFZBDERCGQIUAPUCJEKHAMBLSHWOXPGZYRTTXKMI'
 const KEY_DECRYPT = 'MEHNIVFPNKCVBZXWJYUKSGALGYRWQTAOZPITEMDLUBCJHHDQOS'
 
 const transform = (str, key) => {
-  const l = str.length
+  const ls = str.length
+  const lk = key.length
+
   let output = ''
-  for (let i = 0; i < l; i++) {
-    let k = key.charCodeAt(i % key.length)
-    k -= UPPER_START
+  let is = 0
+  let ik = 0
+  while (is < ls) {
+    let cs = str.charCodeAt(is)
+    is++
 
-    let c = str.charCodeAt(i)
+    if (UPPER_START <= cs && cs < UPPER_END) {
+      const ck = key.charCodeAt(ik)
+      ik = (ik + 1) % lk
 
-    if (UPPER_START <= c && c < UPPER_END) {
-      c -= UPPER_START
-      c = (c + k) % L
-      c += UPPER_START
+      cs = ((cs - UPPER_START) + (ck - UPPER_START)) % L + UPPER_START
     }
 
-    if (LOWER_START <= c && c < LOWER_END) {
-      c -= LOWER_START
-      c = (c + k) % L
-      c += LOWER_START
+    if (LOWER_START <= cs && cs < LOWER_END) {
+      const ck = key.charCodeAt(ik)
+      ik = (ik + 1) % lk
+
+      cs = ((cs - LOWER_START) + (ck - UPPER_START)) % L + LOWER_START
     }
 
-    output += String.fromCharCode(c)
+    output += String.fromCharCode(cs)
   }
 
   return output
