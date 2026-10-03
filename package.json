@@ -35,11 +35,15 @@
     "url": "https://github.com/qntm/scp-3125/issues"
   },
   "devDependencies": {
-    "cypress": "^15.15.0",
+    "cypress": "^16.1.0",
     "esbuild": "^0.28.1",
     "express": "^5.2.0",
     "jsdom": "^30.0.1",
     "standard": "^17.0.0",
     "start-server-and-test": "^3.0.0"
+  },
+  "allowScripts": {
+    "cypress@16.1.0": true,
+    "esbuild@0.28.1": true
   }
 }
