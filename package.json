@@ -41,5 +41,9 @@
     "jsdom": "^30.0.1",
     "standard": "^17.0.0",
     "start-server-and-test": "^3.0.0"
+  },
+  "allowScripts": {
+    "cypress@16.1.0": true,
+    "esbuild@0.28.1": true
   }
 }
